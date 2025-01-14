@@ -1,0 +1,70 @@
+/* Style for the search form */
+.search-form {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.search-form input {
+  width: 200px;
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.search-form button {
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-size: 1rem;
+  background-color: #ff1a1a;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #e60000;
+}
+
+/* Style for displaying search results */
+.search-results {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.movie-card {
+  background-color: #222;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+.movie-image {
+  width: 100%;
+  border-radius: 10px;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.movie-card h5 {
+  font-size: 0.8rem;
+  margin-top: 10px;
+  color:black;
+}
+
+.movie-card p {
+  font-size: 0.9rem;
+  color:black;
+
+}
