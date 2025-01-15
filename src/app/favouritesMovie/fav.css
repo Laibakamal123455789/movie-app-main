@@ -1,4 +1,3 @@
-
 body {
   background: #121212;
   color: #f0f0f0;
@@ -8,7 +7,7 @@ body {
   line-height: 1.6;
 }
 
-.wishlist-container {
+.my-wishlist-container {
   max-width: 1200px;
   margin: 40px auto;
   padding: 20px;
@@ -17,7 +16,7 @@ body {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
 }
 
-.wishlist-header {
+.my-wishlist-header {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 30px;
@@ -26,15 +25,15 @@ body {
   letter-spacing: 2px;
 }
 
-.movie-grid {
+.my-movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 20px;
   padding: 10px;
 }
 
-.movie-card {
-  background-color: #1a1a1a;
+.my-movie-card {
+  background-color: white;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
@@ -47,12 +46,12 @@ body {
   justify-content: space-between;
 }
 
-.movie-card:hover {
+.my-movie-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
-.movie-image {
+.my-movie-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -62,14 +61,13 @@ body {
   transition: transform 0.3s ease;
 }
 
-.movie-image:hover {
+.my-movie-image:hover {
   transform: scale(1.05);
 }
 
-
-.movie-title {
+.my-movie-title {
   font-size: 1.4rem;
-  color: white !important;
+  color: black !important;
   margin-bottom: 10px;
   text-transform: capitalize;
   white-space: nowrap;
@@ -77,22 +75,25 @@ body {
   text-overflow: ellipsis;
   max-width: 90%;
 }
-.movie-details {
+
+.my-movie-details {
   font-size: 1rem;
-  color: white !important;
+  color: black !important;
+  margin-right: 20px;
 }
 
-.movie-details strong {
+.my-movie-details strong {
   color: red;
 }
 
-.empty-wishlist-message {
+.my-empty-wishlist-message {
   color: #f0f0f0;
   text-align: center;
   font-size: 1.3rem;
   margin-top: 40px;
 }
-.remove-button {
+
+.my-remove-button {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -106,7 +107,7 @@ body {
   font-size: 0.5rem;
 }
 
-.remove-button:hover {
+.my-remove-button:hover {
   background-color: #ff1a1a;
   transform: scale(1.1);
 }

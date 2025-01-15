@@ -48,7 +48,11 @@ const userSchema = new mongoose.Schema(
           type: String,
            required: false,
          default: "https://via.placeholder.com/150" }, 
-
+        originalId: {
+          type: String,
+          default: "",
+          required:false
+        }
       },
     ],
   },

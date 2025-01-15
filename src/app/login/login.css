@@ -61,6 +61,9 @@ body {
     transition: background-color 0.3s;
     width: 100%;
   }
+  .submit-button p{
+    color: black;
+  }
   
   .submit-button:hover {
     background-color: rgb(73, 71, 71);

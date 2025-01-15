@@ -1,11 +1,11 @@
 "use client";
+
 import { useState, useEffect } from "react";
-import "./style.css"
 import Movie from "@/components/movies/movie";
 const API_KEY = "62ba84da719c3812b6d078e3f7c2e4f1";
+import "./style.css"
 
 export default function MovieDetail({ params }) {
-  
   const [movieId, setMovieId] = useState(null);
   const [movie, setMovie] = useState(null);
   const [trailer, setTrailer] = useState(null);
@@ -91,47 +91,47 @@ export default function MovieDetail({ params }) {
 
   useEffect(() => {
     const sliderInterval = setInterval(() => {
-      const castContainer = document.querySelector(".cast-members");
+      const castContainer = document.querySelector(".md-cast-members");
       if (castContainer) {
-        castContainer.scrollLeft += 1; 
+        castContainer.scrollLeft += 1;
         if (
           castContainer.scrollLeft + castContainer.offsetWidth >=
           castContainer.scrollWidth
         ) {
-          castContainer.scrollLeft = 0; 
+          castContainer.scrollLeft = 0;
         }
       }
-    }, 50); 
+    }, 50);
 
     return () => clearInterval(sliderInterval);
   }, [cast]);
 
   return (
-    <div className="movie-detail-container">
+    <div className="md-movie-detail-container">
       {movie && movie.backdrop_path ? (
         <img
-          className="background-image"
+          className="md-background-image"
           src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
           alt={movie.title}
         />
       ) : (
-        <div className="no-image">No Background Image Available</div>
+        <div className="md-no-image">No Background Image Available</div>
       )}
 
-      <div className="movie-content">
-        <div className="left-section">
+      <div className="md-movie-content">
+        <div className="md-left-section">
           {isLoading ? (
             <div>Loading movie details...</div>
           ) : movie ? (
             <>
-              <h2 className="movie-title">{movie.title}</h2>
-              <div className="movie-info">
+              <h2 className="md-movie-title">{movie.title}</h2>
+              <div className="md-movie-info">
                 <span>⭐ {movie.vote_average}</span>
                 <span>{movie.runtime} min</span>
                 <span>{movie.release_date}</span>
               </div>
-              <p className="movie-overview">{movie.overview}</p>
-              <div className="buttons">
+              <p className="md-movie-overview">{movie.overview}</p>
+              <div className="md-buttons">
                 <button onClick={playNow}>Play Now</button>
               </div>
             </>
@@ -140,12 +140,12 @@ export default function MovieDetail({ params }) {
           )}
         </div>
 
-        <div className="right-section">
-          <div className="related-movies-section">
+        <div className="md-right-section">
+          <div className="md-related-movies-section">
             <h3>Related Movies</h3>
-            <div className="related-movies-slider">
+            <div className="md-related-movies-slider">
               <div
-                className="related-movies-wrapper"
+                className="md-related-movies-wrapper"
                 style={{
                   transform: `translateX(-${currentSlide * 200}px)`,
                 }}
@@ -154,7 +154,7 @@ export default function MovieDetail({ params }) {
                   relatedMovies.map((relatedMovie) => (
                     <div
                       key={relatedMovie.id}
-                      className="related-movie-card"
+                      className="md-related-movie-card"
                       onClick={() => setMovieId(relatedMovie.id)}
                       style={{ cursor: "pointer" }}
                     >
@@ -169,18 +169,18 @@ export default function MovieDetail({ params }) {
                   <div>No related movies available</div>
                 )}
               </div>
-              <div className="slider-buttons">
+              <div className="md-slider-buttons">
                 <button onClick={prevSlide}>❮</button>
                 <button onClick={nextSlide}>❯</button>
               </div>
             </div>
           </div>
 
-          <div className="cast-section">
+          <div className="md-cast-section">
             <h3>Cast</h3>
-            <div className="cast-members">
+            <div className="md-cast-members">
               {cast.map((member) => (
-                <div key={member.id} className="cast-member">
+                <div key={member.id} className="md-cast-member">
                   <img
                     src={`https://image.tmdb.org/t/p/w200${member.profile_path}`}
                     alt={member.name}
@@ -194,9 +194,9 @@ export default function MovieDetail({ params }) {
       </div>
 
       {isTrailerModalOpen && trailer && (
-        <div className="trailer-modal">
-          <div className="trailer-modal-content">
-            <button className="close-button" onClick={closeTrailerModal}>
+        <div className="md-trailer-modal">
+          <div className="md-trailer-modal-content">
+            <button className="md-close-button" onClick={closeTrailerModal}>
               &times;
             </button>
             <iframe

@@ -2,7 +2,6 @@ import jwt from "jsonwebtoken";
 import { User } from "@/models/userModel";
 import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
-
 const JWT_SECRET = "your_secret_key";
 
 export async function POST(req) {

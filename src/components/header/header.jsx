@@ -1,14 +1,13 @@
-"use client"; // If using Next.js 13 and Client Components
-
+"use client"; 
 import React, { useEffect } from "react";
 import "./header.css";
 import Link from "next/link";
-import { Logout } from "@/store/slice/user";
+import { addUser, Logout } from "@/store/slice/user";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { merastore } from "@/store/store";
 import axios from "axios";
 import axiosInstance from "@/utils/axiosInstance";
-
+import { jwtDecode } from "jwt-decode";
 export default function Page() {
   return (
     <Provider store={merastore}>
@@ -16,14 +15,23 @@ export default function Page() {
     </Provider>
   );
 }
-
 function Header() {
   let dispatch = useDispatch();
   let users = useSelector((store) => store.user);
 
-  // const dummyRequest = () => {
-  //   axiosInstance.get('/api/test')
-  // }
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    console.log("token: ", token)
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        dispatch(addUser(decoded));
+      } catch (error) {
+        localStorage.removeItem("token")
+        alert(error)
+      }
+    }
+  }, []);
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -58,7 +66,7 @@ function Header() {
                   SignUp
                 </Link>
               </li>
-              
+
               <li className="nav-item">
                 <Link className="nav-link" href="/login">
                   Login

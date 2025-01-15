@@ -1,13 +1,14 @@
 "use client";
-
 import { useEffect } from "react";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { addToFavourites, setFavourites, removeFromFavourites } from "@/store/slice/moviesFavourite";
+import {addToFavourites,setFavourites, removeFromFavourites,} from "@/store/slice/moviesFavourite";
 import { useRouter } from "next/navigation";
 import { merastore } from "@/store/store";
 import Image from "next/image";
 import "./fav.css";
+import Link from "next/link";
+import { toast } from "react-toastify";
 
 export default function Page() {
   return (
@@ -22,7 +23,6 @@ function Wishlist() {
   const isAuthenticated = useSelector((store) => store.user.isAuthenticated);
   const dispatch = useDispatch();
   const router = useRouter();
-
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -69,12 +69,12 @@ function Wishlist() {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-        data: { movieId }, 
+        data: { movieId },
       });
 
       if (response.status === 200) {
         dispatch(removeFromFavourites(movieId));
-        alert("Movie removed from your wishlist!");
+        toast.success("Movie deleted successfully");
       }
     } catch (error) {
       console.error("Error deleting movie:", error);
@@ -87,36 +87,38 @@ function Wishlist() {
   };
 
   return (
-    <div className="wishlist-container">
-      <h1 className="wishlist-header">Your Wishlist</h1>
-      <div className="movie-grid">
+    <div className="my-wishlist-container">
+      <h1 className="my-wishlist-header">Your Wishlist</h1>
+      <div className="my-movie-grid">
         {favouriteMovies.length > 0 ? (
           favouriteMovies.map((movie) => (
-            <div key={movie.movieId} className="movie-card">
+            <div key={movie.movieId} className="my-movie-card">
               <button
-                className="remove-button"
+                className="my-remove-button"
                 onClick={() => handleDeleteFromWishlist(movie.movieId)}
               >
                 X
               </button>
-
-              <Image
-                src={`https://image.tmdb.org/t/p/original${movie.imageUrl}`}
-                alt={movie.title || "No Title Available"}
-                width={150}
-                height={200}
-                unoptimized={true}
-                className="movie-image"
-              />
-
-              <h3 className="movie-title">{movie.title || "Unknown Title"}</h3>
-              <p className="movie-details">
+              <Link key={movie.id} href={`/movies/${movie.originalId}`}>
+                <Image
+                  src={`https://image.tmdb.org/t/p/original${movie.imageUrl}`}
+                  alt={movie.title || "No Title Available"}
+                  width={150}
+                  height={200}
+                  unoptimized={true}
+                  className="my-movie-image"
+                />
+              </Link>
+              <h3 className="my-movie-title">{movie.title || "Unknown Title"}</h3>
+              <p className="my-movie-details">
                 <strong>USER:</strong> {movie.addedBy || "Unknown"}
               </p>
             </div>
           ))
         ) : (
-          <p className="empty-wishlist-message">No movies in your wishlist yet.</p>
+          <p className="my-empty-wishlist-message">
+            No movies in your wishlist yet.
+          </p>
         )}
       </div>
     </div>

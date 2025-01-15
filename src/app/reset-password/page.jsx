@@ -110,7 +110,7 @@ export default function ResetPassword() {
             <input
               type="text"
               placeholder="Enter OTP"
-              ref={otpRef} // Assigning the ref here
+              ref={otpRef}
               className="input-field"
             />
             <button className="submit-button" onClick={verifyOtp}>

@@ -6,7 +6,7 @@ body {
   color: white;
 }
 
-.movie-detail-container {
+.md-movie-detail-container {
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -16,7 +16,7 @@ body {
   padding: 20px;
 }
 
-.background-image {
+.md-background-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -27,7 +27,7 @@ body {
   filter: brightness(0.5) blur(5px);
 }
 
-.movie-content {
+.md-movie-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -40,7 +40,7 @@ body {
   padding-top: 2rem;
 }
 
-.left-section {
+.md-left-section {
   flex: 1;
   margin-right: 20px;
   margin-top: 100px;
@@ -52,34 +52,35 @@ body {
   transition: transform 0.3s ease;
 }
 
-.left-section:hover {
+.md-left-section:hover {
   transform: translateY(-5px);
 }
 
-.movie-title {
+.md-movie-title {
   font-size: 2rem;
   margin-bottom: 10px;
   color: #ff5757;
 }
 
-.movie-info {
+.md-movie-info {
   font-size: 0.9rem;
   margin-bottom: 20px;
   display: flex;
   gap: 15px;
   font-weight: bold;
 }
-.movie-info span {
+.md-movie-info span {
   color: white;
 }
-.movie-overview {
+
+.md-movie-overview {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 20px;
   color: #e0e0e0;
 }
 
-.buttons button {
+.md-buttons button {
   background-color: #ff5757;
   color: white;
   border: none;
@@ -90,35 +91,35 @@ body {
   transition: background-color 0.3s;
 }
 
-.buttons button:hover {
+.md-buttons button:hover {
   background-color: #ff2e2e;
 }
 
-.right-section {
+.md-right-section {
   flex: 1;
   max-width: 600px;
 }
 
-.related-movies-section {
+.md-related-movies-section {
   text-align: center;
   margin-bottom: 30px;
 }
-.related-movies-section h3 {
+.md-related-movies-section h3 {
   color: white;
 }
 
-.related-movies-slider {
+.md-related-movies-slider {
   position: relative;
   overflow: hidden;
   margin: 10px 0;
 }
 
-.related-movies-wrapper {
+.md-related-movies-wrapper {
   display: flex;
   transition: transform 0.3s ease-in-out;
 }
 
-.related-movie-card {
+.md-related-movie-card {
   width: 130px;
   margin: 0 10px;
   height: 250px;
@@ -130,26 +131,26 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.related-movie-card img {
+.md-related-movie-card img {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 5px;
 }
 
-.related-movie-card p {
+.md-related-movie-card p {
   font-size: 0.9rem;
   margin-top: 5px;
   color: #ffffff;
 }
 
-.slider-buttons {
+.md-slider-buttons {
   display: flex;
   justify-content: center;
   margin-top: 10px;
   gap: 20px;
 }
 
-.slider-buttons button {
+.md-slider-buttons button {
   background-color: #333;
   color: white;
   border: none;
@@ -160,18 +161,18 @@ body {
   transition: background-color 0.3s;
 }
 
-.slider-buttons button:hover {
+.md-slider-buttons button:hover {
   background-color: #555;
 }
 
-.cast-section {
+.md-cast-section {
   margin-top: -25px;
 }
-.cast-section h3 {
+.md-cast-section h3 {
   color: white;
 }
 
-.cast-members {
+.md-cast-members {
   display: flex;
   gap: 10px;
   overflow-x: auto;
@@ -180,11 +181,11 @@ body {
   -ms-overflow-style: none;
 }
 
-.cast-members::-webkit-scrollbar {
+.md-cast-members::-webkit-scrollbar {
   display: none;
 }
 
-.cast-member {
+.md-cast-member {
   text-align: center;
   width: 100px;
   height: 150px;
@@ -194,7 +195,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.cast-member img {
+.md-cast-member img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -202,12 +203,12 @@ body {
   margin-bottom: 5px;
 }
 
-.cast-member span {
+.md-cast-member span {
   font-size: 0.8rem;
   color: #ffffff;
 }
 
-.trailer-modal {
+.md-trailer-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -220,7 +221,7 @@ body {
   z-index: 1000;
 }
 
-.trailer-modal-content {
+.md-trailer-modal-content {
   width: 90%;
   max-width: 800px;
   background-color: #000;
@@ -230,7 +231,7 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
-.trailer-modal .close-button {
+.md-trailer-modal .md-close-button {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -245,45 +246,45 @@ body {
   transition: background-color 0.3s;
 }
 
-.trailer-modal .close-button:hover {
+.md-trailer-modal .md-close-button:hover {
   background-color: #ff2e2e;
 }
 
 @media screen and (max-width: 768px) {
-  .movie-content {
+  .md-movie-content {
     flex-direction: column;
     align-items: center;
   }
 
-  .left-section,
-  .right-section {
+  .md-left-section,
+  .md-right-section {
     max-width: 100%;
     margin: 0;
   }
 
-  .related-movie-card {
+  .md-related-movie-card {
     width: 100px;
   }
 
-  .cast-member {
+  .md-cast-member {
     width: 80px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .movie-title {
+  .md-movie-title {
     font-size: 1.5rem;
   }
 
-  .buttons button {
+  .md-buttons button {
     font-size: 0.9rem;
   }
 
-  .related-movie-card {
+  .md-related-movie-card {
     width: 80px;
   }
 
-  .cast-member {
+  .md-cast-member {
     width: 70px;
   }
 }

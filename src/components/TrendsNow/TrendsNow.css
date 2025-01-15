@@ -1,81 +1,93 @@
-.trends-now {
-    background-color: #f5f5f5;
-    padding: 20px;
-    color: #333;
-    max-width: 100%;
-    overflow: hidden; /* Prevent scrollbar */
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.trends-container {
+  background-color: #f5f5f5;
+  padding: 20px;
+  color: #333;
+  max-width: 100%;
+  overflow: hidden; /* Prevent scrollbar */
+}
 
-  .movie-details  h3{
-    font-size: 1rem;
-    color: black !important
-  }
-  
-  .filter-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    flex-wrap: wrap; /* Ensure buttons adjust on smaller screens */
-  }
-  
-  .filter-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    background-color: #000;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .filter-button.active {
-    background-color: #e50914;
-  }
-  
-  .filter-button:hover {
-    background-color: #333;
-  }
-  
-  .movie-card {
-    text-align: center;
-    padding: 10px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 250px;
-    height: 300px;
-    margin: auto;
-  }
-  
-  .movie-image {
-    width: 80%;
-    height: 210px;
-    align-items: center;
-    margin: auto;
-    border-radius: 10px;
-    
-  }
-  
-  .movie-details {
-    margin-top: 10px;
-  }
-  .para{
-    display: flex;
-    justify-content: space-around;
-    padding: 5px;
-    color: black !important
-  }
-  .no-movies {
-    text-align: center;
-    color: #666;
-    font-size: 18px;
-    margin-top: 20px;
-  }
-  
+.trends-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.trends-divider {
+  width: 350px;
+  margin: 0 auto 40px auto;
+  border: none;
+  height: 2px;
+  background-color: #333;
+}
+.vote{
+  color: white;
+}
+
+.trends-filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.trends-filter-button {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.trends-filter-button:hover {
+  background-color: #333;
+}
+
+.trends-filter-active {
+  background-color: #e50914;
+}
+
+.trends-slider {
+  padding: 0 10px;
+}
+
+.trends-movie-card {
+  text-align: center;
+  padding: 10px;
+  background-color: #000;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 250px;
+  height: 300px;
+  margin: auto;
+}
+
+.trends-movie-image {
+  width: 80%;
+  height: 210px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.trends-movie-details {
+  margin-top: 10px;
+}
+
+.trends-movie-title {
+  font-size: 1rem;
+  color: white;
+}
+
+.trends-movie-meta {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.trends-no-movies {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  margin-top: 20px;
+}

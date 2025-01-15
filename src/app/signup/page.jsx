@@ -38,7 +38,7 @@ function Signup() {
 
         dispatch(addUser(response.data.user));
         reset();
-        router.push("/");
+        router.push("login");
       } else {
         alert(response.data.message || "Error while registering. Please try again.");
       }
@@ -108,7 +108,7 @@ function Signup() {
         {errors.password && <p className="error-message">{errors.password.message}</p>}
 
         <button className="submit-button" >Register</button>
-        <p>
+        <p id="paragraph">
           Already have an account?{" "}
           <a
             href="#"

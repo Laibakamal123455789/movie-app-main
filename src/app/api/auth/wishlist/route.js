@@ -34,6 +34,7 @@ export async function GET(req) {
           movieId: movie._id,
           title: movie.title || "Unknown Title",
           imageUrl: movie.imageUrl || "https://via.placeholder.com/150",
+          originalId: movie.originalId,
           addedBy: await getUsersWhoFavoritedMovie(movie._id),
         };
       })
@@ -112,16 +113,14 @@ export async function POST(req) {
       }
     }
 
+
     user.favouriteMovies.push({
-      movieId: movie.movieId,
       title: movie.title || "Unknown Title",
       imageUrl: String(movie.backdrop_path),
       addedBy: user.name || "Unknown",
+      originalId: String(movie.id)
     });
-
     await user.save();
-
-    console.log("Movie added to wishlist:", movie);
 
     return NextResponse.json(
       { favouriteMovies: user.favouriteMovies },
@@ -158,7 +157,7 @@ export async function DELETE(req) {
     }
 
     user.favouriteMovies = user.favouriteMovies.filter(
-      (movie) => movie.movieId !== movieId
+      (movie) => movie.id !== movieId
     );
 
     await user.save();

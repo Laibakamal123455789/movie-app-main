@@ -111,18 +111,18 @@ function HeroSection() {
         
   
       } catch (error) {
-        console.error("Invalid token:", error);
-        toast.error("An error occurred while adding the movie to your wishlist.");
-        router.push("/login");
+        // console.error("Invalid token:", error);
+        // toast.error("An error occurred while adding the movie to your wishlist.");
+        // router.push("/login");
       
       }
     } 
     
     else {
-      toast.warning("Please craete account to add movies to your wishlist.")
-      alert("Please log in or sign up to add movies to your wishlist.");
+      toast.warning("Please create an account to add movies to your wishlist.")
+      // alert("Please log in or sign up to add movies to your wishlist.");
       console.log("Redirecting to signup...");
-      router.push("/signup");
+      // router.push("/signup");
 
 
     }

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
-import "./Movie.css";
+import "./movie.css";
 import { BASE_URL,API_KEY } from "@/lib/apiConfig";
 import Link from "next/link";
 
@@ -94,9 +94,9 @@ export default function Movie() {
       </div>
       {movies.length > 0 ? (
         <Slider {...sliderSettings}>
-          {movies.map((movie) => (
+          {movies.map((movie, index) => (
             
-            <div className="movie-card">
+            <div key={index} className="movie-card">
               <Link key={movie.id} href={`/movies/${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -107,8 +107,8 @@ export default function Movie() {
               <div className="movie-details">
                 <h3>{movie.title}</h3>
                 <div className="para">
-                  <p>⭐ {movie.vote_average}</p>
-                  <p>{movie.release_date}</p>
+                  <p className="vote">⭐ {movie.vote_average}</p>
+                  <p className="vote">{movie.release_date}</p>
                 </div>
               </div>
              

@@ -71,16 +71,16 @@ export default function TrendsNow() {
   };
 
   return (
-    <div className="trends-now">
-      <h2>Trends Now</h2>
-      <hr style={{width:"350px" ,justifyContent: "center ", margin: "auto" , marginBottom :"40px"}}></hr>
-      <div className="filter-buttons">
+    <div className="trends-container">
+      <h2 className="trends-title">Trends Now</h2>
+      <hr className="trends-divider" />
+      <div className="trends-filters">
         {categories.map((category) => (
           <button
             key={category.id}
             onClick={() => setSelectedCategory(category.name)}
-            className={`filter-button ${
-              selectedCategory === category.name ? "active" : ""
+            className={`trends-filter-button ${
+              selectedCategory === category.name ? "trends-filter-active" : ""
             }`}
           >
             {category.name}
@@ -88,29 +88,28 @@ export default function TrendsNow() {
         ))}
       </div>
       {movies.length > 0 ? (
-        <Slider {...sliderSettings}>
+        <Slider {...sliderSettings} className="trends-slider">
           {movies.map((movie) => (
-            <div key={movie.id} className="movie-card">
+            <div key={movie.id} className="trends-movie-card">
               <Link key={movie.id} href={`/movies/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className="movie-image"
-              />
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                  className="trends-movie-image"
+                />
               </Link>
-              <div className="movie-details">
-                <h3>{movie.title}</h3>
-                <div className="para">
-
-                <p>⭐ {movie.vote_average}</p>
-                <p>{movie.release_date}</p>
+              <div className="trends-movie-details">
+                <h3 className="trends-movie-title">{movie.title}</h3>
+                <div className="trends-movie-meta">
+                  <p className="vote">⭐ {movie.vote_average}</p>
+                  <p className="vote">{movie.release_date}</p>
                 </div>
               </div>
             </div>
           ))}
         </Slider>
       ) : (
-        <p className="no-movies">Select a category to see movies!</p>
+        <p className="trends-no-movies">Select a category to see movies!</p>
       )}
     </div>
   );
